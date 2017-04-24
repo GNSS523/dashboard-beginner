@@ -1,0 +1,60 @@
+
+      <a routerLink="//page/farm/list" routerLinkActive="active">farm list</a>
+
+
+  <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="true" (click)="changeSteps(activeIndex)"></p-steps>
+
+ 
+<div class="card farm-create col-sm-6">
+  <div class="card-header">
+  </div>
+
+  <div class="card-block">
+    <p-selectButton [options]="setup_options" [(ngModel)]="setup" 
+                    (onChange)="changeSetupMode($event)">
+    </p-selectButton> 
+  </div>
+
+
+  <div class="card-block">
+   <form [formGroup]="form">
+
+      <div class="form-group row">
+        <label class="col-sm-3 form-control-label">name</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" formControlName="name" placeholder="name">
+        </div>
+      </div>
+
+      <div class="form-group row" >
+        <label class="col-sm-3 form-control-label">description</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" formControlName="description" placeholder="description">
+        </div>
+      </div>
+
+      <div class="form-group row" formGroupName="address">
+        <label class="col-sm-3 form-control-label">city</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" formControlName="city" placeholder="city">
+        </div>
+      </div>
+
+      <div class="form-group row" formGroupName="address">
+        <label class="col-sm-3 form-control-label">street</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" formControlName="street" placeholder="street">
+        </div>
+      </div>
+
+      <div class="form-group row" formGroupName="address">
+        <label class="col-sm-3 form-control-label">postcode</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" formControlName="postcode" placeholder="postcode">
+        </div>
+      </div>
+
+      <button class="btn btn-lg btn-primary btn-block" (click)="onSubmit(form.value)" type="submit">create the farm</button>
+  </form>
+  </div>
+</div>
